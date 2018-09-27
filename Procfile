@@ -1,0 +1,1 @@
+web: gunicorn FinancialMove.wsgi:application --log-file -
