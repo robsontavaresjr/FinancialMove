@@ -1,15 +1,12 @@
 {% load staticfiles i18n cms_tags sekizai_tags menu_tags %}
+{% load cms_tags staticfiles %}
+
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}">
-
+<html lang="en">
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{% page_attribute 'meta_description' %}">
-    <meta name="author" content="">
-    <meta name="google-site-verification" content="a-qY5o-HlT5q-MZFh0QgzzwWlAGZvlRqn2Qspg9GsqA" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="{% static 'css/planos.css' %}">
 
     <title>
         {% block title %}
@@ -40,19 +37,13 @@
 
     <!-- Aldryn -->
     {{ ALDRYN_SNAKE.render_head }}
-
-    <!-- django CMS toolbar adjustment -->
-    {% if request.toolbar %}
-    <style>
-        .cms-toolbar-expanded .navbar-custom {
-            margin-top: 45px;
-        }
-    </style>
-    {% endif %}
 </head>
 
 <body>
     <!-- django CMS Toolbar -->
+    {% cms_toolbar %}
+
+<!-- django CMS Toolbar -->
     {% cms_toolbar %}
 
     <!-- Navigation -->
@@ -98,43 +89,53 @@
 
     <!-- Main Content -->
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                {% block content %}{% endblock %}
-            </div>
-        </div>
+        {% block content %}
+
+            <h1 class="demo-title">Nossos Planos</h1>
+
+            <div class="pricing-table">
+<div class="pricing-option">
+<i class="material-icons">important_devices</i>
+<h1>Grupo VIP</h1>
+<hr />
+<p>Análises de Bitcoin e Altcoins. </p>
+<p>Recomendações de compra e venda.</p>
+<p>Suporte, em fórum, com a presença de um analista.</p>
+<hr />
+<div class="price">
+    <div class="front">
+        <span class="price">250 <b>BRL/mês</b></span>
     </div>
+    <div class="back">
+        <a href="#" class="button">Junte-se Agora !</a>
+    </div>
+</div>
+</div>
 
-    <hr>
+<div class="pricing-option">
+<i class="material-icons">perm_identity</i>
+<h1>Consultoria</h1>
+<hr />
+<p>Consultoria Individualizada</p>
+<p>Gestão de carteira e risco</p>
+<p>Recomendações de compra e venda de acordo com o perfil do cliente.</p>        <p>Atendimento direto com nosso Analista.</p>
+<hr />
+<div class="price">
+    <div class="front">
+        <span class="price">500 <b>BRL/mês</b></span>
+    </div>
+    <div class="back">
+        <a href="#" class="button">Junte-se Agora !</a>
+    </div>
+</div>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="https://www.facebook.com/financialmove/">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy; {{ request.site.name }} {% now "Y" %}</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+
+</div>
+
+        {% endblock %}
+
+    </div>
 
     <!-- jQuery -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
@@ -156,5 +157,4 @@
     {{ ALDRYN_SNAKE.render_tail }}
 
 </body>
-
 </html>

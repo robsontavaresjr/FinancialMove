@@ -208,7 +208,8 @@ CMS_LANGUAGES = {
 CMS_TEMPLATES = (
     ## Customize this
     ('fullwidth.html', 'Sections'),
-    ('aldryn_forms/form.html', 'Form')
+    ('aldryn_forms/form.html', 'Form'),
+    ('Planos.html', 'planos'),
 
 )
 
